@@ -43,6 +43,13 @@ func CreateBinaryTree(input *[]int) *TreeNode {
 	}
 	return tree
 }
+
+func BenchmarkTest(b *testing.B) {
+	root := CreateBinaryTree(&[]int{2, 1, 3, 4, 5, 7, 8, 9})
+	for idx := 0; idx < b.N; idx++ {
+		invertTree(root)
+	}
+}
 func Test_invertTree(t *testing.T) {
 	type args struct {
 		root *TreeNode
